@@ -42,7 +42,11 @@ async function returnRenderedMarkdown({file, mode = 'gfm'}) {
             #marginstyle {
                 margin-top: 32px !important;
                 margin-bottom: 32px !important;
-                padding: 0 !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
             }
         </style>
     </head>
