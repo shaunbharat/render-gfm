@@ -2,6 +2,10 @@
 
 Render (GitHub Flavoured with syntax highlighting) Markdown, and generate CSS for each of GitHub’s themes.
 
+- [GitHub Repository](https://github.com/ShaunB56/render-gfm)
+- [npm Package](https://www.npmjs.com/package/render-gfm)
+- [Documentation](https://github.com/ShaunB56/render-gfm#readme)
+
 # Install
 
 ```bash
