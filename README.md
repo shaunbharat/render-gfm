@@ -51,7 +51,14 @@ await render({ file: 'C:/Users/Owner/Desktop/Project/README.md', mode: 'gfm', ou
 Assuming Render-GFM was installed globally with `npm install -g render-gfm`, you should now be able to use it from anywhere with your command line.
 
 ```bash
+# Render Markdown and generate CSS
 gfm --help
+
+# Only render a Markdown file
+gfm markdown --help
+
+# Only generate the CSS
+gfm themes --help
 ```
 
 ## Website
