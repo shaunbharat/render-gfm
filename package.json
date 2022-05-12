@@ -1,0 +1,32 @@
+{
+  "name": "render-markdown-github",
+  "version": "1.0.0",
+  "description": "Render (GitHub Flavoured with syntax highlighting) Markdown, and generate CSS for each of GitHub’s themes.",
+  "keywords": [
+    "github",
+    "css",
+    "syntax-highlighting",
+    "markdown",
+    "github-flavored-markdown",
+    "render",
+    "themes",
+    "github-themes"
+  ],
+  "license": "MIT",
+  "author": "Shaun Bharat",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "gfm": "./cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "commander": "^9.2.0",
+    "generate-github-markdown-css": "^5.0.1",
+    "octokit": "^1.7.1",
+    "prettier": "^2.6.2",
+    "steno": "^2.1.0"
+  }
+}
