@@ -12,6 +12,12 @@
     "themes",
     "github-themes"
   ],
+  "homepage": "https://github.com/ShaunB56/render-gfm#readme",
+  "bugs": "https://github.com/ShaunB56/render-gfm/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShaunB56/render-gfm.git"
+  },
   "license": "MIT",
   "author": "Shaun Bharat",
   "type": "module",
