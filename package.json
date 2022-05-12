@@ -1,5 +1,5 @@
 {
-  "name": "render-markdown-github",
+  "name": "render-gfm",
   "version": "1.0.0",
   "description": "Render (GitHub Flavoured with syntax highlighting) Markdown, and generate CSS for each of GitHub’s themes.",
   "keywords": [
