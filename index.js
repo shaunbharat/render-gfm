@@ -26,29 +26,30 @@ async function returnRenderedMarkdown({file, mode = 'gfm'}) {
 
     const request = await octokit.request('POST /markdown', { text: markdown.toString(), mode: mode });
 
+    // The id "marginstyle was added, to override margins from the stylesheets"
+    // The styling set in the "style" block is GitHub's defaults when rendering Markdown onto GitHub Pages
+    // <article id="marginstyle" class="markdown-body" style="padding: 1em; max-width: 1012px; margin: 0px auto;"> <!-- Change 'max-width' to the size you want: '75em' or '100em' is too (1012px is GitHub's default width when rendering Markdown for GitHub Pages) -->
+    // <link id="theme" rel="stylesheet" href="auto.css"> <!-- Set the default to whatever theme you want, auto.css is recommended -->
     const html = `<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>GitHub Markdown</title>
-        <link id="theme" rel="stylesheet" href="auto.css"> <!-- Set the default to whatever theme you want, auto.css is recommended -->
+        <link id="theme" rel="stylesheet" href="auto.css">
 
         <style>
             #marginstyle {
-                padding: 0 !important;
-            }
-            #marginstyle {
                 margin-top: 32px !important;
                 margin-bottom: 32px !important;
-            } <!-- These are GitHub's defaults when rendering Markdown onto GitHub Pages -->
-        </style> <!-- The id MARGINSTYLE was added, for higher specificity, so that the margin attributes override the generated stylesheets's -->
-            <!-- This styling is here, to make it look more similar to the rendered README.md when it's put up on GitHub Pages. Of course this is opinionated, just edit the entire HTML file to suit yourself! -->
+                padding: 0 !important;
+            }
+        </style>
     </head>
 
     <body class="markdown-body">
 
-        <article id="marginstyle" class="markdown-body" style="padding: 1em; max-width: 1012px; margin: 0px auto;"> <!-- Change 'max-width' to the size you want: '75em' or '100em' is too (1012px is GitHub's default width when rendering Markdown for GitHub Pages) -->
+        <article id="marginstyle" class="markdown-body" style="padding: 1em; max-width: 1012px; margin: 0px auto;">
 
             ${request.data}
 
