@@ -1,3 +1,4 @@
+const version = '1.0.0';
 import render, { writeCSS, writeMarkdown } from './index.js';
 import { Command } from 'commander';
 const cli = new Command();
@@ -5,7 +6,7 @@ const cli = new Command();
 cli
     .name('gfm')
     .description('Render Markdown (GitHub Flavoured with syntax highlighting), and generate CSS for each of GitHub\'s themes')
-    .version(process.version)
+    .version(version)
     .argument('[file]', 'The Markdown file to render, can be an absolute or relative path - also generates CSS')
     .option('-o, --output <string>', 'The output directory, defaults to the folder "dist" in the current directory')
     .option('-m, --mode <string>', 'The render mode, defaults to "gfm" (GitHub Flavoured with syntax highligting) - set to "markdown" for no syntax highlighting')
