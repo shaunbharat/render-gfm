@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>GitHub Markdown</title>
+        <link id="theme" rel="stylesheet" href="auto.css" />
+
+        <style>
+            #marginstyle {
+                margin-top: 32px !important;
+                margin-bottom: 32px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        </style>
+    </head>
+
+    <body class="markdown-body">
+        <article
+            id="marginstyle"
+            class="markdown-body"
+            style="padding: 1em; max-width: 1012px; margin: 0px auto"
+        >
+            <h1>render-gfm</h1>
+            <p>
+                Render (GitHub Flavoured with syntax highlighting) Markdown, and
+                generate CSS for each of GitHub’s themes.
+            </p>
+            <ul>
+                <li>
+                    <a href="https://github.com/ShaunB56/render-gfm"
+                        >GitHub Repository</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.npmjs.com/package/render-gfm"
+                        rel="nofollow"
+                        >npm Package</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://shaunb56.github.io/render-gfm/render-gfm"
+                        rel="nofollow"
+                        >Documentation</a
+                    >
+                </li>
+            </ul>
+            <h1>See Example</h1>
+            <p>
+                <a
+                    href="https://shaunb56.github.io/render-gfm/pages"
+                    rel="nofollow"
+                    >This version is rendered Markdown, through GitHub Pages
+                    alone.</a
+                >
+            </p>
+            <p>
+                <a
+                    href="https://shaunb56.github.io/render-gfm/render-gfm"
+                    rel="nofollow"
+                    >This version is rendered Markdown, using render-gfm.</a
+                >
+            </p>
+            <h1>Install</h1>
+            <div class="highlight highlight-source-shell">
+                <pre>npm install -g render-gfm</pre>
+            </div>
+            <p>The --global option (-g) is required to globally use the CLI.</p>
+            <blockquote>
+                <p>
+                    <g-emoji
+                        class="g-emoji"
+                        alias="white_check_mark"
+                        fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2705.png"
+                        >✅</g-emoji
+                    >
+                    This package was written using other packages which were
+                    written as ES Modules, causing this to be in ESM as well.
+                    See
+                    <a
+                        href="https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c"
+                        >this gist</a
+                    >
+                    by
+                    <a href="https://github.com/sindresorhus">@sindresorhus</a>
+                    for more info.
+                </p>
+            </blockquote>
+            <h1>Usage</h1>
+            <p>
+                Render-GFM can be used programmatically with Javascript, or it
+                can be used at the command line.
+            </p>
+            <h2>API</h2>
+            <p>Import (ESM)</p>
+            <div class="highlight highlight-source-js">
+                <pre><span class="pl-k">import</span> <span class="pl-s1">render</span> <span class="pl-k">from</span> <span class="pl-s">'render-gfm'</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// Using functions other than `render()`:</span>
+<span class="pl-k">import</span> <span class="pl-kos">{</span> <span class="pl-s1">returnRenderedMarkdown</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-en">generateCSS</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-en">writeMarkdown</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">,</span> <span class="pl-en">writeCSS</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'render-gfm'</span><span class="pl-kos">;</span></pre>
+            </div>
+            <p>Usage</p>
+            <div class="highlight highlight-source-js">
+                <pre><span class="pl-c">/* Examples */</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">html</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">returnRenderedMarkdown</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">file</span>: <span class="pl-s">'../src/README.md'</span><span class="pl-kos">,</span> <span class="pl-c1">mode</span>: <span class="pl-s">'gfm'</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// =&gt; &lt;Promise&lt;string&gt;&gt; Returns the rendered Markdown in HTML</span>
+
+<span class="pl-k">const</span> <span class="pl-s1">themes</span> <span class="pl-c1">=</span> <span class="pl-k">await</span> <span class="pl-en">generateCSS</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// =&gt; &lt;Promise&lt;Object&lt;string&gt;&gt;&gt; Returns the CSS for each theme, inside an object</span>
+
+<span class="pl-k">await</span> <span class="pl-en">writeMarkdown</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">file</span>: <span class="pl-s">'C:/Users/Owner/Desktop/Project/README.md'</span><span class="pl-kos">,</span> <span class="pl-c1">mode</span>: <span class="pl-s">'gfm'</span><span class="pl-kos">,</span> <span class="pl-c1">output_dir</span>: <span class="pl-s">'C:/Users/Owner/Desktop/Project/dist'</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// =&gt; &lt;Promise&lt;string&gt;&gt; Renders a Markdown file and writes it to an HTML file, then returns directory path to it</span>
+
+<span class="pl-k">await</span> <span class="pl-en">writeCSS</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">output_dir</span>: <span class="pl-s">'C:/Users/Owner/Desktop/Project/assets/css'</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// =&gt; &lt;Promise&lt;string&gt;&gt; Generates and writes the CSS for each of GitHub's themes, then returns the path to the CSS files</span>
+
+<span class="pl-k">await</span> <span class="pl-en">render</span><span class="pl-kos">(</span><span class="pl-kos">{</span> <span class="pl-c1">file</span>: <span class="pl-s">'C:/Users/Owner/Desktop/Project/README.md'</span><span class="pl-kos">,</span> <span class="pl-c1">mode</span>: <span class="pl-s">'gfm'</span><span class="pl-kos">,</span> <span class="pl-c1">output_dir</span>: <span class="pl-s">'C:/Users/Owner/Desktop/Project/dist'</span> <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-c">// =&gt; &lt;Promise&lt;string&gt;&gt; Generates CSS and renders Markdown, then writes everything to an output directory</span></pre>
+            </div>
+            <h2>CLI</h2>
+            <p>
+                Assuming Render-GFM was installed globally with
+                <code class="notranslate">npm install -g render-gfm</code>, you
+                should now be able to use it from anywhere with your command
+                line.
+            </p>
+            <div class="highlight highlight-source-shell">
+                <pre><span class="pl-c"><span class="pl-c">#</span> Render Markdown and generate CSS</span>
+gfm --help
+
+<span class="pl-c"><span class="pl-c">#</span> Only render a Markdown file</span>
+gfm markdown --help
+
+<span class="pl-c"><span class="pl-c">#</span> Only generate the CSS</span>
+gfm themes --help
+
+<span class="pl-c"><span class="pl-c">#</span> Example - Render a Markdown file and generate CSS, to the output folder "dist" in the current directory</span>
+gfm README.md -o dist
+<span class="pl-c"><span class="pl-c">#</span> or another example (both relative and absolute paths are allowed)</span>
+gfm C:/Users/Owner/Desktop/Project/README.md -o ../dist</pre>
+            </div>
+            <h2>Website</h2>
+            <blockquote>
+                <p>To-do</p>
+            </blockquote>
+            <p>
+                I'll also put this renderer up as a website, to quickly and
+                easily render your Markdown.
+            </p>
+            <h2>License</h2>
+            <p>
+                Copyright © 2022 <a href="https://github.com/ShaunB56"
+                    >Shaun Bharat</a
+                >.
+            </p>
+            <p>
+                This project is licensed with the <a
+                    href="https://github.com/ShaunB56/render-gfm/blob/main/LICENSE"
+                    >MIT</a
+                >
+                license.
+            </p>
+        </article>
+
+        <select
+            style="
+                position: fixed;
+                top: 1em;
+                right: 1em;
+                font-size: 16px;
+                border-radius: 10px;
+                padding: 5px;
+            "
+            onchange="theme.href=this.value"
+        >
+            <option value="auto.css">auto</option>
+            <option value="light.css">light</option>
+            <option value="dark_dimmed.css">dark dimmed</option>
+            <option value="dark.css">dark</option>
+            <option value="dark_high_contrast.css">dark high contrast</option>
+            <option value="dark_colorblind.css">dark colorblind</option>
+            <option value="light_colorblind.css">light colorblind</option>
+        </select>
+    </body>
+</html>
