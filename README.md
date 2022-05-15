@@ -24,7 +24,7 @@ The --global option (-g) is required to globally use the CLI.
 
 # Usage
 
-Render-GFM can be used programmatically with Javascript, or it can be used at the command line.
+Render-gfm can be used programmatically with Javascript, or it can be used at the command line.
 
 ## API
 
@@ -58,7 +58,7 @@ await render({ file: 'C:/Users/Owner/Desktop/Project/README.md', mode: 'gfm', ou
 
 ## CLI
 
-Assuming Render-GFM was installed globally with `npm install -g render-gfm`, you should now be able to use it from anywhere with your command line.
+Assuming render-gfm was installed globally with `npm install -g render-gfm`, you should now be able to use it from anywhere with your command line.
 
 ```bash
 # Render Markdown and generate CSS
