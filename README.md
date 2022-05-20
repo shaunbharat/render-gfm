@@ -2,17 +2,17 @@
 
 Render (GitHub Flavoured with syntax highlighting) Markdown, and generate CSS for each of GitHub’s themes.
 
-- [GitHub Repository](https://github.com/ShaunB56/render-gfm)
+- [GitHub Repository](https://github.com/shaunbharat/render-gfm)
 - [npm Package](https://www.npmjs.com/package/render-gfm)
-- [Documentation](https://shaunb56.github.io/render-gfm/render-gfm)
+- [Documentation](https://shaunbharat.github.io/render-gfm/render-gfm)
 
-# See Example
+## See Example
 
-[This version is rendered Markdown, through GitHub Pages alone.](https://shaunb56.github.io/render-gfm/pages)
+[This version is rendered Markdown, through GitHub Pages alone.](https://shaunbharat.github.io/render-gfm/pages)
 
-[This version is rendered Markdown, using render-gfm.](https://shaunb56.github.io/render-gfm/render-gfm)
+[This version is rendered Markdown, using render-gfm.](https://shaunbharat.github.io/render-gfm/render-gfm)
 
-# Install
+## Install
 
 ```bash
 npm install -g render-gfm
@@ -22,13 +22,14 @@ The --global option (-g) is required to globally use the CLI.
 
 >✅ This package was written using other packages which were written as ES Modules, causing this to be in ESM as well. See [this gist](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) by [@sindresorhus](https://github.com/sindresorhus) for more info.
 
-# Usage
+## Usage
 
 Render-gfm can be used programmatically with Javascript, or it can be used at the command line.
 
-## API
+### API
 
 Import (ESM)
+
 ```javascript
 import render from 'render-gfm';
 
@@ -37,6 +38,7 @@ import { returnRenderedMarkdown(), generateCSS(), writeMarkdown(), writeCSS() } 
 ```
 
 Usage
+
 ```javascript
 /* Examples */
 
@@ -56,7 +58,7 @@ await render({ file: 'C:/Users/Owner/Desktop/Project/README.md', mode: 'gfm', ou
 // => <Promise<string>> Generates CSS and renders Markdown, then writes everything to an output directory
 ```
 
-## CLI
+### CLI
 
 Assuming render-gfm was installed globally with `npm install -g render-gfm`, you should now be able to use it from anywhere with your command line.
 
@@ -76,7 +78,7 @@ gfm README.md -o dist
 gfm C:/Users/Owner/Desktop/Project/README.md -o ../dist
 ```
 
-## Website
+### Website
 
 > To-do
 
@@ -84,6 +86,6 @@ I'll also put this renderer up as a website, to quickly and easily render your M
 
 ## License
 
-Copyright © 2022 [Shaun Bharat](https://github.com/ShaunB56).
+Copyright © 2022 [Shaun Bharat](https://github.com/shaunbharat).
 
-This project is licensed with the [MIT](https://github.com/ShaunB56/render-gfm/blob/main/LICENSE) license.
+This project is licensed with the [MIT](https://github.com/shaunbharat/render-gfm/blob/main/LICENSE) license.
