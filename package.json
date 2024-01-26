@@ -1,6 +1,6 @@
 {
   "name": "render-gfm",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Render GitHub Flavoured Markdown, with CSS for each of GitHub's themes.",
   "keywords": [
     "github",
