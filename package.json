@@ -16,19 +16,20 @@
   "bugs": "https://github.com/shaunbharat/render-gfm/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/shaunbharat/render-gfm.git"
+    "url": "git+https://github.com/shaunbharat/render-gfm.git"
   },
   "license": "MIT",
   "author": "Shaun Bharat",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "render-gfm": "./cli.js"
+    "render-gfm": "cli.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --outDir .",
     "build:docs": "bash ./scripts/build-docs.sh",
-    "render-gfm": "ts-node-esm src/cli.ts"
+    "render-gfm": "ts-node-esm src/cli.ts",
+    "buildandpublish": "bash ./scripts/publish.sh"
   },
   "dependencies": {
     "commander": "^11.1.0",
