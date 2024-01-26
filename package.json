@@ -1,7 +1,7 @@
 {
   "name": "render-gfm",
   "version": "2.0.0",
-  "description": "Render (GitHub Flavoured with syntax highlighting) Markdown, and generate CSS for each of GitHub’s themes.",
+  "description": "Render GitHub Flavoured Markdown, with CSS for each of GitHub's themes.",
   "keywords": [
     "github",
     "css",

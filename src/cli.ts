@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-const { version } = JSON.parse(fs.readFileSync('./package.json', { encoding: 'utf8' }));
-
 import fs from 'fs';
 import path from 'path';
 
@@ -13,7 +11,6 @@ const cli = new Command();
 cli
     .name('render-gfm')
     .description("Render GitHub Flavoured Markdown, with CSS for each of GitHub's themes")
-    .version(process.env.npm_package_version || version, '-v, --version', 'Display the current version of render-gfm')
     .helpOption('-h, --help', 'Display help for the command')
     .addHelpCommand(false);
 
