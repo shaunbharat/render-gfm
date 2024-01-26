@@ -1,3 +1,7 @@
 node_modules/
 dist/
 test.md
+cli.d.ts
+cli.js
+index.d.ts
+index.js
