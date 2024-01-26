@@ -10,7 +10,7 @@ Render GitHub Flavoured Markdown, with CSS for each of GitHub's themes.
 
 [This version is rendered Markdown, through GitHub Pages alone.](https://shaunbharat.github.io/render-gfm/pages)
 
-[This version is rendered Markdown, using render-gfm.](https://shaunbharat.github.io/render-gfm/render-gfm)
+[This version is rendered Markdown, using render-gfm.](https://shaunbharat.github.io/render-gfm)
 
 ## CLI
 
