@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>GitHub Markdown</title>
+        <link id="theme" rel="stylesheet" href="css/auto.css" />
+
+        <style>
+            #main {
+                margin-top: 32px !important;
+                margin-bottom: 32px !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+        </style>
+    </head>
+
+    <body class="markdown-body">
+        <article
+            id="main"
+            class="markdown-body"
+            style="padding: 1em; max-width: 1012px; margin: 0px auto"
+        >
+            <h1>render-gfm</h1>
+            <p>
+                Render GitHub Flavoured Markdown, with CSS for each of GitHub's
+                themes.
+            </p>
+            <ul>
+                <li>
+                    <a href="https://github.com/shaunbharat/render-gfm"
+                        >GitHub Repository</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://www.npmjs.com/package/render-gfm"
+                        rel="nofollow"
+                        >npm Package</a
+                    >
+                </li>
+                <li>
+                    <a
+                        href="https://shaunbharat.github.io/render-gfm/render-gfm"
+                        rel="nofollow"
+                        >Documentation</a
+                    >
+                </li>
+            </ul>
+            <h2>See Example</h2>
+            <p>
+                <a
+                    href="https://shaunbharat.github.io/render-gfm/pages"
+                    rel="nofollow"
+                    >This version is rendered Markdown, through GitHub Pages
+                    alone.</a
+                >
+            </p>
+            <p>
+                <a
+                    href="https://shaunbharat.github.io/render-gfm/render-gfm"
+                    rel="nofollow"
+                    >This version is rendered Markdown, using render-gfm.</a
+                >
+            </p>
+            <h2>CLI</h2>
+            <h3>Install (Globally)</h3>
+            <div class="highlight highlight-source-shell">
+                <pre
+                    class="notranslate"
+                ><span class="pl-c"><span class="pl-c">#</span> Install render-gfm with the --global option (-g) to use the CLI.</span>
+npm install -g render-gfm</pre>
+            </div>
+            <h3>Usage (Commands)</h3>
+            <blockquote>
+                <p>
+                    Use the help option (<code class="notranslate">--help</code>
+                    or <code class="notranslate">-h</code>) to see the usage
+                    information for each command.
+                </p>
+            </blockquote>
+            <div class="highlight highlight-source-shell">
+                <pre class="notranslate">render-gfm --help
+
+<span class="pl-c"><span class="pl-c">#</span> Render Markdown files</span>
+render-gfm markdown --help
+
+<span class="pl-c"><span class="pl-c">#</span> Generate CSS</span>
+render-gfm themes --help</pre>
+            </div>
+            <blockquote>
+                <p>
+                    Examples of the
+                    <code class="notranslate">markdown</code> command
+                </p>
+            </blockquote>
+            <div class="highlight highlight-source-shell">
+                <pre
+                    class="notranslate"
+                ><span class="pl-c"><span class="pl-c">#</span> Example - Render "README.md" and "test.md" Markdown files to the output folder "docs" in the current directory</span>
+render-gfm markdown  -o ./docs README.md test.md
+
+<span class="pl-c"><span class="pl-c">#</span> or another example (both relative and absolute paths are allowed)</span>
+render-gfm markdown -o ../dist C:/Users/Owner/Desktop/Project/README.md</pre>
+            </div>
+            <blockquote>
+                <p>
+                    Examples of the
+                    <code class="notranslate">themes</code> command
+                </p>
+            </blockquote>
+            <div class="highlight highlight-source-shell">
+                <pre
+                    class="notranslate"
+                ><span class="pl-c"><span class="pl-c">#</span> Example - Generate and write the CSS files to the output folder "css" in the current directory</span>
+render-gfm themes -o ./css</pre>
+            </div>
+            <h3>Usage (Functions)</h3>
+            <blockquote>
+                <p>
+                    The CLI commands are just wrappers around some functions.
+                    These functions have been written specifically for the CLI,
+                    but are exported and can be used in your code directly.
+                </p>
+            </blockquote>
+            <div class="highlight highlight-source-js">
+                <pre class="notranslate"><span class="pl-c">/**</span>
+<span class="pl-c"> * Render Markdown files (looks in the current working directory by default, if relative paths are specified) to the specified output directory.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string[]</span>} files An array of the Markdown file paths to render. Can be absolute or relative paths.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string</span>} outputDir The directory to write the rendered HTML to. If unspecified, the default is the folder "dist" in the current working directory.</span>
+<span class="pl-c"> */</span>
+<span class="pl-s1">export</span> <span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-s1">markdown</span><span class="pl-kos">(</span><span class="pl-s1">files</span>: <span class="pl-s1">string</span><span class="pl-kos">[</span><span class="pl-kos">]</span><span class="pl-kos">,</span> <span class="pl-s1">outputDir</span>: <span class="pl-s1">string</span> <span class="pl-c1">=</span> <span class="pl-s">'./dist'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Generate CSS files for each of GitHub's themes to the specified output directory.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string</span>} outputDir The directory to write the CSS files to. If unspecified, the default is the folder "dist/css" in the current working directory.</span>
+<span class="pl-c"> */</span>
+<span class="pl-s1">export</span> <span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-s1">themes</span><span class="pl-kos">(</span><span class="pl-s1">outputDir</span>: <span class="pl-s1">string</span> <span class="pl-c1">=</span> <span class="pl-s">'./dist/css'</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre>
+            </div>
+            <h2>API</h2>
+            <h3>Install</h3>
+            <div class="highlight highlight-source-shell">
+                <pre
+                    class="notranslate"
+                ><span class="pl-c"><span class="pl-c">#</span> Install render-gfm to your JavaScript project.</span>
+npm install render-gfm</pre>
+            </div>
+            <h3>Usage</h3>
+            <div class="highlight highlight-source-js">
+                <pre
+                    class="notranslate"
+                ><span class="pl-k">import</span> <span class="pl-s1">render</span><span class="pl-kos">,</span> <span class="pl-kos">{</span> <span class="pl-s1">generateCSS</span> <span class="pl-kos">}</span> <span class="pl-k">from</span> <span class="pl-s">'render-gfm'</span><span class="pl-kos">;</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Generates and returns CSS for each requested theme in the `themes` array, as an object</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string</span>} outputDir The directory to write the CSS files to. If unspecified, the CSS will still be returned in an object, but not written to the filesystem.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">Theme[]</span>} themes An array of the themes to generate CSS for. Defaults to all themes.</span>
+<span class="pl-c"> * <span class="pl-k">@returns</span> {<span class="pl-smi">Promise&lt;Record&lt;string, string&gt;&gt;</span>} An object containing the CSS for each theme.</span>
+<span class="pl-c"> */</span>
+export <span class="pl-k">async</span> <span class="pl-k">function</span> <span class="pl-s1">generateCSS</span><span class="pl-kos">(</span><span class="pl-s1">outputDir</span>: <span class="pl-s1">string</span><span class="pl-kos">,</span> <span class="pl-s1">themes</span>: <span class="pl-v">Theme</span><span class="pl-kos">[</span><span class="pl-kos">]</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">Auto</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">Light</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">Dark</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">DarkDimmed</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">DarkHighContrast</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">LightColorblind</span><span class="pl-kos">,</span> <span class="pl-v">Theme</span><span class="pl-kos">.</span><span class="pl-c1">DarkColorblind</span><span class="pl-kos">]</span><span class="pl-kos">)</span>: <span class="pl-v">Promise</span><span class="pl-c1">&lt;</span><span class="pl-v">Record</span><span class="pl-c1">&lt;</span><span class="pl-s1">string</span><span class="pl-kos">,</span> <span class="pl-s1">string</span><span class="pl-c1">&gt;&gt;</span><span class="pl-kos">;</span>
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Renders Markdown to HTML. If `outputFile` is specified, the HTML will be written to the filesystem.</span>
+<span class="pl-c"> * The resulting HTML rendered will be wrapped in a default template, unless `includeDefaultTemplate` is set to false.</span>
+<span class="pl-c"> * This is useful for when you want to use your own HTML template.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string</span>} markdown The Markdown to render.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">string</span>} outputFile The file to write the rendered HTML to. If unspecified, the HTML will still be returned, but not written to the filesystem.</span>
+<span class="pl-c"> * <span class="pl-k">@param</span> {<span class="pl-smi">boolean</span>} includeDefaultTemplate Whether or not to include the default HTML template. Default: true. If false, the rendered Markdown will not be wrapped in a template.</span>
+<span class="pl-c"> * <span class="pl-k">@returns</span> {<span class="pl-smi">Promise&lt;string&gt;</span>} The rendered HTML.</span>
+<span class="pl-c"> */</span>
+<span class="pl-k">export</span> <span class="pl-k">default</span> <span class="pl-s1">async</span> <span class="pl-k">function</span> <span class="pl-s1">render</span><span class="pl-kos">(</span><span class="pl-s1">markdown</span>: <span class="pl-s1">string</span><span class="pl-kos">,</span> <span class="pl-s1">outputFile</span>: <span class="pl-s1">string</span><span class="pl-kos">,</span> <span class="pl-s1">includeDefaultTemplate</span>: <span class="pl-s1">boolean</span> <span class="pl-c1">=</span> <span class="pl-c1">true</span><span class="pl-kos">)</span>: <span class="pl-v">Promise</span><span class="pl-c1">&lt;</span><span class="pl-s1">string</span><span class="pl-c1">&gt;</span><span class="pl-kos">;</span></pre>
+            </div>
+            <h2>License</h2>
+            <p>
+                Copyright © 2022 <a href="https://github.com/shaunbharat"
+                    >Shaun Bharat</a
+                >.
+            </p>
+            <p>
+                This project is licensed with the <a
+                    href="https://github.com/shaunbharat/render-gfm/blob/main/LICENSE"
+                    >MIT</a
+                >
+                license.
+            </p>
+        </article>
+
+        <select
+            style="
+                position: fixed;
+                top: 1em;
+                right: 1em;
+                font-size: 16px;
+                border-radius: 10px;
+                padding: 5px;
+            "
+            onchange="theme.href=this.value"
+        >
+            <option value="css/auto.css">auto</option>
+            <option value="css/light.css">light</option>
+            <option value="css/dark_dimmed.css">dark dimmed</option>
+            <option value="css/dark.css">dark</option>
+            <option value="css/dark_high_contrast.css">
+                dark high contrast
+            </option>
+            <option value="css/dark_colorblind.css">dark colorblind</option>
+            <option value="css/light_colorblind.css">light colorblind</option>
+        </select>
+    </body>
+</html>
